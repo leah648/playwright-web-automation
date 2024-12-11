@@ -17,7 +17,11 @@ attrs = "^24.2.0"
 typing-extensions = "^4.12.2"
 pluggy = "^1.5.0"
 
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+markers = [
+    "sanity: mark a test as a sanity test."
+]

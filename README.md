@@ -43,12 +43,18 @@ To run the tests, use the following command:
 To generate and view Allure reports:
 
 Run tests with Allure:
-poetry run pytest --alluredir=allure-results
+    ```sh
+    poetry run pytest --alluredir=allure-results
+    ```
 
 Generate the Allure report:
-allure serve allure-results
+    ```sh
+    allure serve allure-results
+    ```
 
 ## Project Structure
+
+```
 playwright_web_automation/
 ├── tests/
 │   ├── test_register_login_and_send_contact_message.py
@@ -67,6 +73,7 @@ playwright_web_automation/
 ├── config.ini
 ├── pyproject.toml
 └── README.md
+```
 
 ## Contributing
 Feel free to submit issues, fork the repository and send pull requests!

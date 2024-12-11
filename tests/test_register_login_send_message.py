@@ -18,14 +18,9 @@ from pages.secured_area_page import SecuredAreaPage
 @allure.story("Register, login, and send a notification")
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.title("User Registration, Login, and Contact Message Sending Flow")
-@allure.feature("User Registration and Contact")
-@allure.story("Register, login, and send a notification")
-@allure.severity(allure.severity_level.CRITICAL)
-@allure.title("User Registration, Login, and Contact Message Sending Flow")
-@pytest.mark.sanity
-@allure.parent_suite('Sanity')
-@allure.suite("Full Flows")
-def test_register_login_and_send_contact_message(page: Page, user: str, password: str, application_url: str):
+def test_register_login_and_send_contact_message(
+    page: Page, user: str, password: str, application_url: str
+):
     """
     Test the user registration, login, and contact message sending flow.
 
@@ -43,7 +38,6 @@ def test_register_login_and_send_contact_message(page: Page, user: str, password
         application_url (str): The base URL of the application.
     """
     
-    # Initialize page objects
     register_page = RegisterPage(page)
     login_page = LoginPage(page)
     secured_area_page = SecuredAreaPage(page)
@@ -52,37 +46,58 @@ def test_register_login_and_send_contact_message(page: Page, user: str, password
 
     with allure.step("Go to registration page"):
         page.goto(f"{application_url}/register")
+        logger.info("Navigated to registration page")
 
     with allure.step("Register a new user and verify successful registration"):
         register_page.register(user, password)
         
         logger.info("Verify there are no errors")
-        assert not register_page.is_error_notification_displayed(), "Unexpected error notification displayed during registration"
+        assert not register_page.is_error_notification_displayed(), (
+            "Unexpected error notification displayed during registration"
+        )
         
         logger.info("Verify user was redirected to login page")
-        expect(page, "User was not redirected to login page").to_have_url(f"{application_url}/login")
+        expect(page, "User was not redirected to login page").to_have_url(
+            f"{application_url}/login"
+        )
         
         logger.info("Verify correct success message appears")
-        assert login_page.is_success_notification_displayed(Notifications.REGISTRATION_SUCCESS.value), "Registration success notification not displayed"
+        assert login_page.is_success_notification_displayed(
+            Notifications.REGISTRATION_SUCCESS.value
+        ), "Registration success notification not displayed"
 
     with allure.step("Login with the new user and verify successful login"):
         login_page.login(user, password)
         
         logger.info("Verify there are no errors")
-        assert not login_page.is_error_notification_displayed(), "Unexpected error notification displayed during login"
+        assert not login_page.is_error_notification_displayed(), (
+            "Unexpected error notification displayed during login"
+        )
         
         logger.info("Verify user was redirected to secure page")
-        expect(page, "User was not redirected to secured area").to_have_url(f"{application_url}/secure")
+        expect(page, "User was not redirected to secured area").to_have_url(
+            f"{application_url}/secure"
+        )
 
         logger.info("Verify correct success message")
-        assert secured_area_page.is_success_notification_displayed(Notifications.LOGIN_SUCCESS.value), "Login success notification not displayed"
+        assert secured_area_page.is_success_notification_displayed(
+            Notifications.LOGIN_SUCCESS.value
+        ), "Login success notification not displayed"
 
     with allure.step("Navigate to contact page"):
         secured_area_page.click_contact()
         
         logger.info("Verify user was redirected to contact page")
-        expect(page, "User was not redirected to contact page").to_have_url(f"{application_url}/contact")
+        expect(page, "User was not redirected to contact page").to_have_url(
+            f"{application_url}/contact"
+        )
 
     with allure.step("Send a contact message and verify success"):
-        contact_page.send_contact_message(user, "test@gmail.com", "This is a test message.")
-        assert contact_page.is_success_notification_displayed(Notifications.MESSAGE_SENT_SUCCESS.value), "Message send success notification not displayed"
+        contact_page.send_contact_message(
+            user, 
+            "test@gmail.com", 
+            "This is a test message."
+        )
+        assert contact_page.is_success_notification_displayed(
+            Notifications.MESSAGE_SENT_SUCCESS.value
+        ), "Message send success notification not displayed"
