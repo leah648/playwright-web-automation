@@ -1,54 +1,41 @@
-# Playwright Web Automation
+Playwright Web Automation
+This project leverages Playwright for web automation, pytest for testing, Allure for reporting, and Poetry for dependency management.
 
-This project uses Playwright for web automation, pytest for testing, Allure for reporting, and Poetry for dependency management.
+Table of Contents
+Installation
+Usage
+Tests
+Allure Reports
+Project Structure
+Contributing
+License
+Installation
+Clone the repository:
+git clone https://github.com/leah648/playwright-web-automation
+cd playwright_web_automation
 
-## Table of Contents
-- Installation
-- Usage
-- Tests
-- Allure Reports
-- Project Structure
-- Contributing
-- License
+Install Poetry: Follow the instructions on Poetry’s official website to install Poetry.
+Install dependencies:
+poetry install
 
-## Installation
+Install Playwright browsers:
+poetry run playwright install
 
-1. **Clone the repository:**
-    ```sh
-    git clone https://github.com/yourusername/playwright_web_automation.git
-    cd playwright_web_automation
-    ```
-
-2. **Install Poetry:**
-    Follow the instructions at Poetry's official website to install Poetry.
-
-3. **Install dependencies:**
-    ```sh
-    poetry install
-    ```
-
-4. **Install Playwright browsers:**
-    ```sh
-    poetry run playwright install
-    ```
-
-## Usage
-
+Usage
 To run the tests, use the following command:
-    ```sh
-    poetry run pytest
-    ```
 
-## Allure Reports
+poetry run pytest
+
+Allure Reports
 To generate and view Allure reports:
 
 Run tests with Allure:
 poetry run pytest --alluredir=allure-results
 
-Generate the Allure report:
+Generate and serve the Allure report:
 allure serve allure-results
 
-## Project Structure
+Project Structure
 playwright_web_automation/
 ├── tests/
 │   ├── test_register_login_and_send_contact_message.py
@@ -64,12 +51,13 @@ playwright_web_automation/
 ├── utils/
 │   └── allure_logger.py
 ├── conftest.py
-├── conftest.ini
+├── config.ini
 ├── pyproject.toml
 └── README.md
 
-## Contributing
-Feel free to submit issues, fork the repository and send pull requests!
+Contributing
+Contributions are welcome! Feel free to submit issues, fork the repository, and send pull requests.
 
-## License
+License
 This project is licensed under the MIT License.
+
