@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "playwright-web-automation"
+version = "0.1.0"
+description = ""
+authors = ["Lmoshe <moshelea123@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+playwright = "^1.49.1"
+pytest = "^8.3.4"
+allure-pytest = "^2.13.5"
+pytest-playwright = "^0.6.2"
+slugify = "^0.0.1"
+allure-python-commons = "^2.13.5"
+attrs = "^24.2.0"
+typing-extensions = "^4.12.2"
+pluggy = "^1.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
