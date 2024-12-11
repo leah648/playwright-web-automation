@@ -21,9 +21,9 @@ class ContactPage(BasePage):
             page (Page): The Playwright Page object.
         """
         super().__init__(page)
-        self.name_input = page.get_by_role("textbox").first
-        self.email_input = page.get_by_role("textbox").nth(1)
-        self.address_textarea = page.locator("textarea[name=\"address\"]")
+        self.name_input = page.locator('label:has-text("Name") + input')
+        self.email_address_input = page.locator('label:has-text("Email") + input')
+        self.message_textarea = page.locator("textarea[name=\"address\"]")
         self.send_button = page.get_by_role("link", name="Send")
 
     def send_contact_message(self, name: str, email: str, address: str):
@@ -38,9 +38,9 @@ class ContactPage(BasePage):
         self.logger.info(f"Fill name {name} on name input")
         self.name_input.fill(name)
         self.logger.info(f"Fill email {email} on email input")
-        self.email_input.fill(email)
+        self.email_address_input.fill(email)
         self.logger.info(f"Fill address {address} on address input")
-        self.address_textarea.fill(address)
+        self.message_textarea.fill(address)
         self.send_button.click()
     
 
