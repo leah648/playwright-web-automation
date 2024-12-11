@@ -16,7 +16,7 @@ This project uses Playwright for web automation, pytest for testing, Allure for 
 1. **Clone the repository:**
     ```sh
     git clone https://github.com/leah648/playwright-web-automation
-    cd playwright_web_automation
+    cd playwright-web-automation
     ```
 
 2. **Install Poetry:**
@@ -28,24 +28,24 @@ This project uses Playwright for web automation, pytest for testing, Allure for 
     ```
 
 4. **Install Playwright browsers:**
-    ```sh
-    poetry run playwright install
-    ```
+```
+poetry run playwright install
+```
 
 ## Usage
 
 To run the tests, use the following command:
-    ```sh
-    poetry run pytest
-    ```
+```
+poetry run pytest
+```
 
 ## Allure Reports
 To generate and view Allure reports:
 
 **Run tests with Allure:**
-    ```sh
-    poetry run pytest --alluredir=allure-results
-    ```
+```
+poetry run pytest --alluredir=allure-results
+```
 
 **Generate the Allure report:**
     ```sh
