@@ -48,9 +48,9 @@ To generate and view Allure reports:
     ```
 
 **Generate the Allure report:**
-    ```sh
-    allure serve allure-results
-    ```
+```
+allure serve allure-results
+```
 
 ## Project Structure
 
