@@ -42,12 +42,12 @@ To run the tests, use the following command:
 ## Allure Reports
 To generate and view Allure reports:
 
-Run tests with Allure:
+**Run tests with Allure:**
     ```sh
     poetry run pytest --alluredir=allure-results
     ```
 
-Generate the Allure report:
+**Generate the Allure report:**
     ```sh
     allure serve allure-results
     ```
