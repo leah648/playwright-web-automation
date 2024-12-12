@@ -24,4 +24,4 @@ class SecuredAreaPage(BasePage):
         Clicks the contact button to navigate to the contact page.
         """
         self.logger.info(f"Open Contact form by clicking Contact link on Bar")
-        self.contact_button.click()
+        self.click_element(self.contact_button)

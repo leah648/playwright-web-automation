@@ -43,7 +43,7 @@ class ContactPage(BasePage):
             email (str): The email to enter in the form.
         """
         self.logger.info(f"Filling email: {email}")
-        self.email_address_input.fill(email)
+        self.fill_element(self.email_address_input, email)
 
     def fill_address(self, address: str):
         """
@@ -53,14 +53,14 @@ class ContactPage(BasePage):
             address (str): The address to enter in the form.
         """
         self.logger.info(f"Filling address: {address}")
-        self.message_textarea.fill(address)
+        self.fill_element(self.message_textarea, address)
 
     def click_send(self):
         """
         Clicks the send button to submit the form.
         """
         self.logger.info("Clicking the send button")
-        self.send_button.click()
+        self.click_element(self.send_button)
 
     def send_contact_message(self, name: str, email: str, address: str):
         """

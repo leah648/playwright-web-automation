@@ -41,14 +41,14 @@ class LoginPage(BasePage):
             password (str): The password to enter in the form.
         """
         self.logger.info(f"Filling password: {password}")
-        self.password_input.fill(password)
+        self.fill_element(self.password_input, password)
 
     def click_login(self):
         """
         Clicks the login button to submit the form.
         """
         self.logger.info("Clicking the login button")
-        self.login_button.click()
+        self.click_element(self.login_button)
         
     def login(self, username: str, password: str):
         """

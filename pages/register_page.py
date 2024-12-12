@@ -33,7 +33,7 @@ class RegisterPage(BasePage):
             username (str): The username to enter in the form.
         """
         self.logger.info(f"Filling username: {username}")
-        self.username_input.fill(username)
+        self.fill_element(self.username_input, username)
 
     def fill_password(self, password: str):
         """
@@ -43,7 +43,7 @@ class RegisterPage(BasePage):
             password (str): The password to enter in the form.
         """
         self.logger.info(f"Filling password: {password}")
-        self.password_input.fill(password)
+        self.fill_element(self.password_input, password)
 
     def fill_confirm_password(self, password: str):
         """
@@ -53,14 +53,14 @@ class RegisterPage(BasePage):
             password (str): The password to enter in the form.
         """
         self.logger.info(f"Filling confirm password: {password}")
-        self.confirm_password_input.fill(password)
+        self.fill_element(self.confirm_password_input, password)
 
     def click_register(self):
         """
         Clicks the register button to submit the form.
         """
         self.logger.info("Clicking the register button")
-        self.register_button.click()
+        self.click_element(self.register_button)
 
     def register(self, username: str, password: str):
         """
